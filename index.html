@@ -1,1 +1,177 @@
-# kennsakutu-ru
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学習用URL推薦サイト</title>
+</head>
+<body>
+
+<style>
+body{
+  background-color:#ffffe0;
+}
+h1{
+   background-color:#ffffe0;
+   font-weight:900;
+  
+}
+form{
+  background-color:#f0f8ff;
+  font-family:serif;
+  font-weight:600;
+}
+.text{
+  background-color:#ffff00;
+  
+}
+.text2{
+   font-weight:800;
+   text-decoration:underline;
+   
+  
+  
+}
+.button{
+  background-color:#ffff00;
+  border-radius:4px;
+  border-color:#ffff00;
+}
+.button1{
+   background-color:#adff2f;
+   border-color:#adff2f;
+   border-radius:4px;
+   
+  
+}
+.button2{
+   background-color:#87ceed;
+   border-color:#87ceed;
+   border-radius:4px;
+   
+  
+}
+
+
+
+
+
+
+</style>
+    <h1>学習用URL推薦サイト</h1>
+    <img src="" alt="">
+    <p>あなたに<strong class="text">おすすめの学習サイト</strong>を紹介します。</p>
+    <form action="">
+<p>あなたの<strong class="text2">興味のあるもの</strong>を選択してください。</p>
+<input type="checkbox" name="genre" value="etc">検索BOX：<input type="text" name="text">
+<br>
+<input type="checkbox" name="genre" value="プログラミング">プログラミング
+        <input type="checkbox" name="genre" value="研究">研究
+        <input type="checkbox" name="genre" value="自主探求">自主探求
+        <br>
+       <input type="checkbox" name="genre" value="進路">進路
+       
+       
+        
+       
+        <input type="checkbox" name="genre" value="過去問">過去問
+
+     <input type="checkbox" name="genre" value="一覧">一覧
+     <input type="checkbox" name="genre" value="シラバス">シラバス　　　　
+    <br>
+    
+        
+        <br>
+    <input class="button"type="button" value="送信" onclick="recomend()";>
+         <input type="reset" class="button2">  
+      
+    </form>
+    <p id="result"></p>
+    <script>
+    var links="";
+       function btnPush(){
+       
+ window.open(links)
+			
+       
+      }
+        
+     function recomend(){
+      const score = document.getElementsByName('genre');     
+      
+        let selectedGenres = document.querySelectorAll('input[name="genre"]:checked');
+        if (selectedGenres.length > 0) {
+        if(score[0].checked){
+        
+     let tex=document.getElementsByName('text')[0].value;
+     let text12=document.getElementById("result");
+     let msg = 'あなたにおすすめのサイトは、<strong>';
+          
+     switch(tex){
+     case "プログラミング": msg+="progete";links="https://prog-8.com/dashboard";
+     			break;
+    
+     case "進路":msg+="卒業生がふりかえる〜進路編〜";links="https://moniponbear.com/kosen_sinro/286/";
+     break;
+     case "研究":msg+="国立高専情報共有ポータル";links="https://research.kosen-k.go.jp/";
+     break;
+     case "過去問":msg+=""; links="";
+     break;
+     case "テスト対策":msg+="ヨビノリ";links="https://youtube.com/@yobinori";break;
+case "進路、体験談":msg+="かっつー、ナレッジスター";links="https://m.youtube.com/channel/UC_MTz4eFIPt2ihuqFk8tMqQ";break;
+case "テスト対策":msg+="高校数学の美しい物語";links="";break;
+case "テスト対策":msg+="とある男が授業をしてみた";links="";break;
+case "教養":msg+="高専の説明会の闇";links="https://ameblo.jp/kosenkuruna/entry-12650698315.html";break;
+case "創作資料":msg+="英辞郎onthewed";links="https://eow.alc.co.jp/";break;
+case "進路、体験談":msg+="みんなの高専チャンネル";links="https://youtube.com/@kosen-channel";break;
+case "資格習得":msg+="英検";links="https://www.eiken.or.jp/eiken/";break;
+case "テスト対策":msg+="クァンダ";links="";break;
+case "プログラミング":msg+="クスラッチ";links="https://scratch.mit.edu/";break;
+case "授業変更":msg+="ブラックボード";links="";break;
+case "授業で分からない部分の理解":msg+="YouTube";links="";break;
+case "資格":msg+="英ナビ";links="https://www.ei-navi.jp/eiken/group_result/";break;
+   
+    
+    
+     case "シラバス":msg+="シラバス"; links="https://syllabus.kosen-k.go.jp/Pages/PublicDepartments?school_id=05&lang=ja";
+     break;
+     default:alert("そのジャンルのものはまだ追加されていません。申し訳ありません。");break;
+     
+    
+     
+     }
+        msg += '</strong>です！<input type="button" value="移動！" class="button1"; onclick="btnPush()";>';
+      text12.innerHTML=msg;
+      
+       
+        
+        }else{
+            let recommendBooks = {
+                プログラミング: 'progate',
+                自主探求: '自主探求検索ツール',
+                過去問: '過去問共有サイト',
+                進路:'卒業生がふりかえる〜進路編〜',
+                一覧:'',
+                シラバス:'WEBシラバス',
+                研究:'国立高専情報共有ポータル'
+            
+            
+                
+            };
+ 
+       
+            let msg = 'あなたにおすすめのサイトは、<strong>';
+            for (let genre of selectedGenres) {
+                msg += recommendBooks[genre.value] + '、';
+            }
+            
+            
+            msg += '</strong>です！';
+         
+           let text12=document.getElementById("result");
+           text12.innerHTML=msg;
+        }
+        }
+        }
+       
+    </script>
+</body>
+</html>
